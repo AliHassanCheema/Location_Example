@@ -48,7 +48,7 @@ class LocationViewModel extends BaseViewModel{
     Placemark place = placemarks[0];
     address =
         '${place.street}, ${place.thoroughfare}, ${place.subLocality}, ${place.administrativeArea} , ${place.country}';
-        setBusy(false);
+    setBusy(false);
   }
 
 }

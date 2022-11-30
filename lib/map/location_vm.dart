@@ -9,7 +9,6 @@ import 'package:stacked/stacked.dart';
 class LocationViewModel extends BaseViewModel {
   Position? position;
   String address = 'Location will show here';
-
   LocationViewModel() {
     getGeoLocationPosition();
     // onGetAutoLocation();

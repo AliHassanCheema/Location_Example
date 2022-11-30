@@ -32,7 +32,6 @@ class LocationScreen extends ViewModelBuilderWidget<LocationViewModel> {
           onPressed: () {
             viewModel.getAddressFromLatLong();
           },
-          focusColor: Colors.amber,
           child: const CHIAppBar(''),
         ));
   }

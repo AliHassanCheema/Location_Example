@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:location_example/map/location_vu.dart';
+import 'package:locateme/map/location_vu.dart';
 
 void main() {
   runApp(const MyApp());

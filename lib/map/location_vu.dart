@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:location_example/map/location_vm.dart';
+import 'package:locateme/map/location_vm.dart';
 import 'package:stacked/stacked.dart';
 
 import '../chi_appbar.dart';

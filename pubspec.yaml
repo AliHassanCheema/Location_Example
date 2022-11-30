@@ -40,6 +40,8 @@ dependencies:
   geocoding: ^2.0.5
   geolocator: ^9.0.1
   internet_connection_checker_plus: ^1.0.1
+  flutter_email_sender: ^5.2.0
+  mailer: ^5.2.0
 
 dev_dependencies:
   flutter_test:

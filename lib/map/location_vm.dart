@@ -1,14 +1,27 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:stacked/stacked.dart';
 
-class LocationViewModel extends BaseViewModel{
+class LocationViewModel extends BaseViewModel {
   Position? position;
   String address = 'Location will show here';
 
-  LocationViewModel(){
+  LocationViewModel() {
     getGeoLocationPosition();
+    // onGetAutoLocation();
+  }
+
+  onGetAutoLocation() async {
+    await getGeoLocationPosition();
+    if (position != null) {
+      Timer.periodic(Duration(seconds: 10), ((timer) {
+        getAddressFromLatLong();
+      }));
+    }
   }
 
   Future<Position> getGeoLocationPosition() async {
@@ -48,7 +61,15 @@ class LocationViewModel extends BaseViewModel{
     Placemark place = placemarks[0];
     address =
         '${place.street}, ${place.thoroughfare}, ${place.subLocality}, ${place.administrativeArea} , ${place.country}';
+    final Email email = Email(
+      body: address,
+      subject: 'Email subject',
+      recipients: ['ahcheema12@gmail.com'],
+      cc: ['ahcheema12@gmail.com'],
+      bcc: ['bcc@example.com'],
+      isHTML: false,
+    );
     setBusy(false);
+    await FlutterEmailSender.send(email);
   }
-
 }

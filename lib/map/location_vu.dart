@@ -10,30 +10,32 @@ class LocationScreen extends ViewModelBuilderWidget<LocationViewModel> {
   @override
   Widget builder(
       BuildContext context, LocationViewModel viewModel, Widget? child) {
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text('Location App'),
-        ),
-        body: Center(
-          child: viewModel.isBusy
-              ? const CircularProgressIndicator(
-                  color: Colors.green,
-                )
-              : Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Card(
-                      child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Text(viewModel.address),
-                  )),
-                ),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            viewModel.getAddressFromLatLong();
-          },
-          child: const CHIAppBar(''),
-        ));
+    return SafeArea(
+      child: Scaffold(
+          appBar: AppBar(
+            title: const Text('Location App'),
+          ),
+          body: Center(
+            child: viewModel.isBusy
+                ? const CircularProgressIndicator(
+                    color: Colors.green,
+                  )
+                : Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Card(
+                        child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Text(viewModel.address),
+                    )),
+                  ),
+          ),
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              viewModel.getAddressFromLatLong();
+            },
+            child: const CHIAppBar(''),
+          )),
+    );
   }
 
   @override
